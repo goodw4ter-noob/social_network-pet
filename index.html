@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5c309ce0cc.js" crossorigin="anonymous"></script>
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> -->
+    <script type="module" src="./src/controller.js"></script>
+    <title>My Project</title>
+</head>
+
+<body>
+
+    <nav>
+        <p class="welcome">Log in to get started</p>
+        <img src="./img/weixin-logo-pngrepo-com.png" alt="logo" class="logo">
+        <form class="login">
+            <input type="text" placeholder="nickname" class="login__input login__input--nickname">
+            <input type="text" placeholder="password" class="login__input login__input--password">
+            <button class="login__btn">&rarr;</button>
+        </form>
+        <!-- <div class="top-profile">
+            <img src="./img/OuyQhwHf9gQ.png" alt="photo" class="profile-photo">
+            <div class="selected">
+                <span class="top-nickname">JS</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+            <ul class="profile-menu">
+                <li>Change theme</li>
+                <li>Exit</li>
+            </ul>
+        </div> -->
+    </nav>
+
+    <div class="main-page-wrapper hidden">
+        <!-- <div class="main-page-profile">
+            <div class="main-page-profile-photo">
+                <img src="/img/bird.png" alt="bird" class="profile-image">
+            </div>
+            <div class="main-page-profile-row mpp-name">
+                <span>John Smith</span>
+                <img src="/img/svg/edit.svg" alt="edit" class="edit-button">
+                <div class="main-page-profile-row mpp-location">
+                    <span>Montreal, Canada</span>
+                    <img src="/img/canada.svg" alt="" class="flag">
+                </div>
+            </div>
+            <div class="main-page-profile-row mpp-info">
+                <span>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic, non animi in quae
+                    blanditiis distinctio aspernatur dolores voluptates fuga vero dolorum quisquam eos rem, asperiores
+                    quo praesentium, repellat quos quod autem nobis dolorem debitis ea dolore. Beatae, cupiditate ea?
+                </span>
+            </div>
+            <div class="main-page-profile-row mpp-links">
+                <div class="link1">
+                    <a
+                        href="https://www.youtube.com/watch?v=MEOR2b69Pl4">https://www.youtube.com/watch?v=MEOR2b69Pl4</a>
+                </div>
+                <div class="link2">
+                    <a href="https://vk.com/feed">https://vk.com/feed</a>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="main-page-messages-wrapper">
+            <div class="top-panel">
+                <div class="create-post-btn">
+                    <img src="/img/svg/new-post.svg" alt="newMessageIcon" class="panel-btn new-message-icon">
+                </div>
+                <div class="bookmark-btn">
+                    <img src="/img/svg/bookmark_empty.svg" alt="bookmark" class="panel-btn bookmark-empty-icon">
+                </div>
+                <div class="sort-btn">
+                    <img src="/img/svg/sort-by-alpha.svg" alt="sortBtn" class="panel-btn sort-icon">
+                </div>
+            </div>
+
+            <div class="container-msg">
+                <div class="main-page-messages">
+                    <!-- <div class="message-row">
+                        <div class="message-raw-block">
+                            <span class="message-row-name">Jason</span>
+                            <span class="message-row-date">16:25</span>
+                        </div>
+                        <span class="message-row-text">Today was a great day! I visited the famous exhibition of a
+                            famous artist and managed to meet him in personal. What a great man indeed!</span>
+                    </div>
+                     -->
+                </div>
+            </div>
+        </div>
+
+        <div class="main-page-friends">
+            <ul class="main-page-options">
+                <li class="list-item">Messages</li>
+                <li class="list-item">Feed</li>
+                <li class="list-item">Users</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="create-posts-wrapper hidden">
+        <form action="" class="create-post-form">
+            <textarea rows="1" placeholder="Write something..." class="post-textarea"></textarea>
+            <input type="submit" value="Send" class="input-field" />
+            <img src="/img/svg/close.svg" alt="close" class="close-form-button">
+        </form>
+        <div class="create-posts-background"></div>
+    </div>
+
+    <div class="change-profile-wrapper">
+        <form action="" class="change-profile-form">
+            <span>Name</span>
+            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
+            <span>City</span>
+            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
+            <span>Country</span>
+            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
+            <span>Additional info</span>
+            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
+            <span>Links</span>
+            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
+            <input type="submit" value="Send" class="change-profile-input-field" />
+            <img src="/img/svg/close.svg" alt="close" class="close-change-profile-button">
+        </form>
+        <div class="change-profile-background"></div>
+    </div>
+
+    <!-- <div class="messenger hidden">
+        <div class="messenger-area">
+            <div class="message-block-big">
+                <div class="outside-container-big">
+                    <span class="username">Username</span>
+                    <span class="messageDateInside-big">There will be date!</span>
+                </div>
+                <span class="messageTextInside-big">There will be a message!</span>
+            </div>
+        </div>
+        <form action="" class="messenger-form">
+            <textarea rows="1" placeholder="Напишите сообщение..." class="textarea-big"></textarea>
+            <input type="submit" value="Send" class="input-field-big" />
+        </form>
+    </div> -->
+    
+
+
+    <div class="history-flow hidden">
+        <div class="icons">
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+            <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <div class="side-chat">
+            <div class="messageWrapper">
+                <!-- <div class="message-block">
+                    <div class="inside-container">
+                        <span class="messageTextInside">There will be a message!</span>
+                        <span class="messageDateInside">There will be date!</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="alert-wrapper hidden">
+        <!-- <span class="alert-text">You've got a new message!</span> -->
+        <img src="./img/OuyQhwHf9gQ.png" alt="photo" class="photo">
+    </div>
+
+
+
+
+
+</body>
+
+</html>
