@@ -19,7 +19,6 @@ const controlPostCreation = async function(e) {
 const controlPosts = async function() {
     await model.getPosts();
     PostsView.renderOldPost(model.state.posts);
-    console.log(model.state.posts);
     PostsView.addHandlerShowPostWindow();
     PostsView.addHandlerClosePostWindow();
 }
@@ -27,10 +26,11 @@ const controlPosts = async function() {
 const controlAuth = function(e) {
     e.preventDefault();
     model.checkAuth();
-    AuthView.render(model.state.authedUser);
+    AuthView.renderMainPage(model.state.authedUser);
     AuthView.addHandlerShowMenu();
     AuthView.addHandlerLogout(model.state);
     PostsView.renderDeleteBtn(model.state.posts, model.state.authedUser);
+    AuthView.addHandlerRemoveDeleteBtn(model.state.posts, model.state.authedUser);
 }
 
 const init = async function () {

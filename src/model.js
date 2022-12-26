@@ -22,8 +22,8 @@ export const createNewPost = async function() {
             "id": state.authedUser.id,
             "nickname": state.authedUser.nickname,
         }
-    }
-    console.log(post);
+    };
+    
     state.posts.push(post);
     await AJAX('http://localhost:3000/posts', post);
 

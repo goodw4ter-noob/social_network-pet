@@ -25,11 +25,15 @@ class AuthView extends View {
         this._exitBtn.addEventListener('click', () => { this._logout(state) })
     }
 
+    addHandlerRemoveDeleteBtn(posts, authedUser) {
+        this._exitBtn.addEventListener('click', this._removeDeleteBtn.bind(this, posts, authedUser))
+    }
+
     addHandlerShowMenu() {
         this._selected.addEventListener('click', this._toggleMenu.bind(this));
     }
 
-    render(user) {
+    renderMainPage(user) {
         if (!user) return;
         this._authedUser = user;
         this._login.classList.add('hidden');
@@ -92,12 +96,17 @@ class AuthView extends View {
         this._mppLinks.insertAdjacentHTML('beforeend', links);
         this._mainPageWrapper.classList.remove('hidden');
 
-
         this._arrow = document.querySelector('.fa-arrow-down');
         this._prof = document.querySelector('.profile-menu');
         this._selected = document.querySelector('.selected');
         this._exitBtn = document.querySelector('.exit-button');
         this._topProfile = document.querySelector('.top-profile');
+    }
+
+    _removeDeleteBtn(posts, authedUser) {
+        const { id = authedUser.id } = posts.find(post => post.author.id === authedUser.id);
+        const postsToChange = document.querySelectorAll(`.post-by-user-${id}`);
+        postsToChange.forEach(post => post.classList.add('hidden'));
     }
 
     _logout(state) {

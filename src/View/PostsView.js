@@ -1,5 +1,4 @@
 import { postTextarea } from "../../helper.js";
-import View from "./View.js";
 
 class PostsView {
     _parentElement = document.querySelector('.main-page-messages');
@@ -8,10 +7,9 @@ class PostsView {
     _createPostForm = document.querySelector('.create-post-form');
     _closeFormButton = document.querySelector('.close-form-button');
     _createPostsBackground = document.querySelector('.create-posts-background');
+    _exitButton = document.querySelector('.exit-button');
     _messageRowDeletePostBtn = '';
     _body = document.querySelector('body');
-
-
 
     addHandlerShowPostWindow() {
         this._createPostBtn.addEventListener('click', this._showPostWindow.bind(this));
