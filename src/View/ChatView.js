@@ -51,4 +51,4 @@ class ChatView {
     };
 }
 
-export default new ChatView();
+// export default new ChatView();

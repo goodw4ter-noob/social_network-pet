@@ -21,7 +21,8 @@ nav {
    justify-content: space-between;
    align-items: center;
    padding: 0 2rem;
-   height: 15vh;
+   height: 9rem;
+   margin-bottom: 5px;
 }
 
 .main-page-wrapper {
@@ -65,6 +66,7 @@ nav {
 
 .mpp-info {
    font-size: 15px; /* не больше 290 символов! */
+   white-space: pre-line;
 }
 
 .flag {
@@ -99,20 +101,21 @@ nav {
    justify-content: center;
    width: 100%;
    height: 100%;
-   border: 1px solid blue;
+   /* border: 1px solid blue; */
 }
 
 .change-profile-form {
    position: fixed;
-   top: calc(100% - 70vh);
+   top: calc(100% - 82vh);
    background-color: #fff;
    z-index: 2;
    padding: 3.5rem;
    display: flex;
    flex-direction: column;
    width: 65rem;
-   height: 35rem;
+   height: 53rem;
    border-radius: 15px;
+   font-size: 15px;
 }
 
 .change-profile-background {
@@ -123,6 +126,36 @@ nav {
    background-color: rgb(78, 78, 78);
    opacity: 0.5;
    z-index: 1;
+}
+
+.change-profile-textarea {
+   resize: none;
+   outline: none;
+   border: 1px solid #ccc;
+   font-size: 15px;
+   display: flex;
+   margin-bottom: 10px;
+   min-height: 3rem;
+   border-radius: 5px;
+   padding: 5px;
+}
+
+.add-info-textarea {
+   min-height: 10rem;
+   white-space: pre-line;
+}
+
+.change-profile-input-field {
+   position: absolute;
+   bottom: 20px;
+   right: 20px;
+   border: none;
+   background-color: #fff;
+   max-width: 8vh;
+   font-size: 20px;
+   font-weight: 500;
+   cursor: pointer;
+   color: rgb(10, 62, 182);
 }
 
 .close-change-profile-button {
@@ -232,14 +265,14 @@ nav {
    padding: 0.2em 0.5em;
    box-shadow: 0 0 6px rgb(59, 59, 59);
    border-radius: 0.5em;
-   background-color:#fff;
+   background-color: #fff;
    margin: 10px auto;
    font-size: 17px;
    cursor: pointer;
 }
 
 .top-panel {
-   position:static;
+   position: static;
    display: flex;
    justify-content: end;
    background-color: #eee;
@@ -333,8 +366,8 @@ nav {
 .logo {
    position: absolute;
    left: 45%;
-   width: 10vh;
-   height: 10vh;
+   width: 7rem;
+   height: 7rem;
 }
 
 .login {
@@ -391,7 +424,6 @@ nav {
    margin: 0 auto;
    width: 100%;
    height: 100%;
-   /* border: 2px solid blue; */
    background-color: rgb(78, 78, 78);
    opacity: 0.5;
    z-index: 1;
@@ -461,8 +493,6 @@ nav {
    width: 5vh;
    height: 5vh;
 }
-
-
 
 /* form {
    display: flex;
@@ -541,10 +571,6 @@ nav {
    font-weight: 500;
 }
 
-.hidden {
-   display: none;
-}
-
 @keyframes op {
    from {
       opacity: 0.1;
@@ -554,81 +580,274 @@ nav {
    }
 }
 
-.messenger {
+.messenger-wrapper {
    position: relative;
-   width: 80%;
-   height: 90vh;
-   border: 5px solid #4070f4;
+   margin: 0 auto;
+   max-width: 62vw;
+   min-height: 80vh;
+   display: flex;
+   justify-content: center;
+   box-shadow: 0 0 6px rgb(59, 59, 59);
+   border-radius: 15px;
 }
 
-.messenger-area {
+.messenger {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   background-color: #fff;
+   border-radius: 15px;
+}
+
+.users-part {
+   width: 35rem;
+   max-height: 80vh;
+   background-color: #fff;
+   border-right: 2px solid #eee;
+   display: flex;
+   flex-direction: column;
+   border-top-left-radius: 15px;
+   border-bottom-left-radius: 15px;
+}
+
+.users-top-bar {
+   min-height: 2.4em;
+   background-color: rgb(237, 237, 237);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-left: 10px;
+   padding-right: 10px;
+   font-size: 20px;
+   color: rgb(199, 199, 199);
+   width: 100%;
+   border-top-left-radius: 15px;
+   border-bottom: 1px solid #fff;
+}
+
+.search-button {
+   width: 3rem;
+   height: 3rem;
+   border: none;
+   background-color: #eee;
+}
+
+.search-form {
+   display: flex;
+   align-items: center;
+   /* border: 1px solid rgb(0, 0, 0); */
+   width: 86%;
+   height: 4.5rem;
+}
+
+.search-field {
+   display: flex;
+   margin-left: 7px;
+   height: 100%;
+   width: 82%;
+   background-color: rgb(237, 237, 237);
+   outline: none;
+   border: none;
+   font-size: 1.7rem;
+}
+
+.user-inner-part {
+   height: 100%;
+   overflow-x: auto;
+}
+
+.user-top-bar-name {
+   font-size: 1.5rem;
+}
+
+.user-row, .row-printed {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   border-bottom: 2px solid #ccc;
+   padding: 5px;
+   max-width: 100%;
+   max-height: 8rem;
+   cursor: pointer;
+}
+
+.user-row:hover {
+   background-color: #eee;
+}
+
+.active {
+   background-color: #eee;
+}
+
+.user-row-photo {
+   width: 5.5rem;
+   height: 5.5rem;
+   border-radius: 50%;
+}
+
+.user-row-name {
+   display: flex;
+   margin-left: 10px;
+   font-size: 1.5em;
+}
+
+.users-top-bar-bookmark {
+   width: 1.7vw;
+   height: 1.7vw;
+   cursor: pointer;
+}
+
+.messenger-part {
+   width: 100%;
+   background-color: #fff;
+   border-radius: 15px;
+   /* border: 1px solid black; */
+}
+
+.messenger-top-bar {
+   min-height: 2.4em;
+   background-color: rgb(237, 237, 237);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-left: 10px;
+   padding-right: 10px;
+   font-size: 20px;
+   color: rgb(0, 0, 0);
+   width: 100%;
+   border-top-right-radius: 15px;
+   border-bottom: 1px solid #fff;
+}
+
+.welcome-message {
+   position: absolute;
+   width: 22rem;
+   height: 20rem;
+   word-wrap: break-word;
+   top: 40%;
+   left: 50%;
+   margin: 0 auto;
+   margin-bottom: 25%;
+   font-size: 3rem;
+}
+
+.messages-list {
+   /* border: 2px solid black; */
    display: flex;
    flex-direction: column;
    justify-content: end;
-   border-bottom: 2px solid #4070f4;
-   height: 80%;
+   height: 100%;
+}
+
+.chat-user-info {
+   display: flex;
+   align-items: center;
+}
+
+.messenger-main-part {
+   height: 75vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: end;
+}
+
+.messenger-exit-btn {
+   font-size: 1.8rem;
+   cursor: pointer;
+}
+
+.messenger-area {
+   /* display: flex; */
+   /* flex-direction: column; */
+   min-height: 90%;
+   /* justify-content: end; */
+   border-radius: 15px;
 }
 
 .message-block-big {
-   max-width: 80%;
-   min-height: 10%;
-   /* border: 2px solid green; */
-   margin-bottom: 20px;
-   margin-left: 80px;
+   position: relative;
+   margin: 0 auto;
+   width: 85%;
+   min-height: 6.5vh;
+   margin-bottom: 5px;
    word-wrap: break-word;
+   display: flex;
+   flex-direction: column;
 }
 
 .outside-container-big {
    display: flex;
    flex-direction: row;
+   align-items: center;
+   border-bottom: 1px solid #36e172;
 }
 
-.username {
+.messenger-username {
    margin-right: 30px;
-   color: #4070f4;
-   font-size: 2.3vh;
-   font-weight: 600;
+   font-size: 1.7rem;
+   font-weight: 500;
 }
 
 .messageTextInside-big {
-   bottom: 0;
-   left: 0;
-   font-size: 2.5vh;
-   font-weight: 500;
+   font-size: 2rem;
+   font-weight: 400;
    white-space: pre-line;
 }
 
 .messageDateInside-big {
    display: flex;
-   color: #688df3;
-   font-size: 1.5vh;
-   font-weight: 600;
-   margin-top: 5px;
+   font-size: 1.5rem;
+   font-weight: 500;
 }
 
 .messenger-form {
+   position: relative;
+   /* position: absolute;*/
    display: flex;
    flex-direction: row;
-   /* border: 2px solid rgb(177, 11, 144); */
+   align-items: center;
+   justify-content: center;
    width: 100%;
-   height: 20%;
+   height: 10%;
+   /* border: 1px solid black; */
 }
 
-.textarea-big {
+.messenger-textarea {
+   /* position: relative;
+   margin: 0 auto; */
    width: 75%;
    height: 90%;
    resize: none;
+   outline: none;
+   border: 1px solid #ccc;
+   border-radius: 12px;
    padding: 8px;
-   font-size: 2vh;
+   font-size: 1.4rem;
+   transition: all 0.2s ease;
 }
 
-.input-field-big {
-   width: 20%;
+.messenger-textarea:focus {
+   transition: all 0.2s ease;
+   box-shadow: 1px 2px 2px rgb(59, 59, 59);
+   margin-bottom: 3px;
+}
+
+.messenger-send-button {
+   color: #58f38e;
+   font-weight: 600;
+   width: 5vw;
    height: 50%;
    margin-left: 1.4vh;
    justify-content: center;
-   font-size: 2.5vh;
+   font-size: 2.5rem;
+   border: none;
+   background-color: #fff;
    cursor: pointer;
+}
+
+.messenger-send-button:hover {
+   color: #36e172;
+   transition: all 0.3s ease;
 }
 
 .fa-circle-xmark {
@@ -650,4 +869,13 @@ nav {
    top: 0;
    right: 0;
    cursor: pointer;
+}
+
+.hidden {
+   display: none;
+}
+
+a, u {
+   color: black;
+   text-decoration: none;
 }

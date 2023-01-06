@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./src/controller.js"></script>
+    <!-- <script type="module" src="test.js"></script> -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5c309ce0cc.js" crossorigin="anonymous"></script>
-    <!-- <script defer src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> -->
-    <script type="module" src="./src/controller.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.10.0/lodash.js"></script>
     <title>My Project</title>
 </head>
 
 <body>
-
     <nav>
         <p class="welcome">Log in to get started</p>
         <img src="./img/weixin-logo-pngrepo-com.png" alt="logo" class="logo">
@@ -51,9 +51,7 @@
             </div>
             <div class="main-page-profile-row mpp-info">
                 <span>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic, non animi in quae
-                    blanditiis distinctio aspernatur dolores voluptates fuga vero dolorum quisquam eos rem, asperiores
-                    quo praesentium, repellat quos quod autem nobis dolorem debitis ea dolore. Beatae, cupiditate ea?
+                    
                 </span>
             </div>
             <div class="main-page-profile-row mpp-links">
@@ -97,7 +95,7 @@
 
         <div class="main-page-friends">
             <ul class="main-page-options">
-                <li class="list-item">Messages</li>
+                <a href="#messenger" class="list-item show-messenger-btn">Messages</a>
                 <li class="list-item">Feed</li>
                 <li class="list-item">Users</li>
             </ul>
@@ -116,37 +114,94 @@
     <div class="change-profile-wrapper hidden">
         <form action="" class="change-profile-form">
             <span>Name</span>
-            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
+            <textarea rows="1" maxlength="40" placeholder="Write something..."
+                class="change-profile-textarea name-textarea"></textarea>
             <span>City</span>
-            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
+            <textarea rows="1" maxlength="25" placeholder="Write something..."
+                class="change-profile-textarea city-textarea"></textarea>
             <span>Country</span>
-            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
+            <textarea rows="1" maxlength="50" placeholder="Write something..."
+                class="change-profile-textarea country-textarea"></textarea>
+            <span>Link 1</span>
+            <textarea rows="1" placeholder="Write something..."
+                class="change-profile-textarea link1-textarea"></textarea>
+            <span>Link 2</span>
+            <textarea rows="1" placeholder="Write something..."
+                class="change-profile-textarea link2-textarea"></textarea>
             <span>Additional info</span>
-            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
-            <span>Links</span>
-            <textarea rows="1" placeholder="Write something..." class="change-profile-textarea"></textarea>
-            <input type="submit" value="Send" class="change-profile-input-field" />
+            <textarea rows="1" maxlength="290" placeholder="Write something..."
+                class="change-profile-textarea add-info-textarea"></textarea>
+            <button class="change-profile-input-field">Confirm</button>
             <img src="/img/svg/close.svg" alt="close" class="close-change-profile-button">
         </form>
         <div class="change-profile-background"></div>
     </div>
 
-    <!-- <div class="messenger hidden">
-        <div class="messenger-area">
-            <div class="message-block-big">
-                <div class="outside-container-big">
-                    <span class="username">Username</span>
-                    <span class="messageDateInside-big">There will be date!</span>
+    <div class="messenger-wrapper hidden">
+        <div class="messenger">
+            <div class="users-part">
+                <div class="users-top-bar">
+                    <form action="" class="search-form">
+                        <button class="search-button"> <img src="./img/svg/search.svg" alt="find"> </button>
+                        <input type="text" class="search-field" placeholder="search">
+                    </form>
+                    <img src="./img/svg/star.svg" alt="bookmark" class="users-top-bar-bookmark">
                 </div>
-                <span class="messageTextInside-big">There will be a message!</span>
+                <div class="user-inner-part">
+                    <div class="users-list">
+                        <!-- <a href="#userchatnum1" class="user-row">
+                            <img src="/img/usersImg/user3img.png" alt="user-row-img" class="user-row-photo">
+                            <span class="user-row-name">John Smith @ JS</span>
+                        </a>
+                        <a href="#userchatnum2" class="user-row">
+                            <img src="/img/usersImg/user3img.png" alt="user-row-img" class="user-row-photo">
+                            <span class="user-row-name">John Smith @ JS</span>
+                        </a>
+                        <a href="#userchatnum3" class="user-row">
+                            <img src="/img/usersImg/user3img.png" alt="user-row-img" class="user-row-photo">
+                            <span class="user-row-name">John Smith @ JS</span>
+                        </a>
+                        <a href="#userchatnum4" class="user-row">
+                            <img src="/img/usersImg/user3img.png" alt="user-row-img" class="user-row-photo">
+                            <span class="user-row-name">John Smith @ JS</span>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="messenger-part">
+                <div class="messenger-top-bar">
+                    <div class="chat-user-info">
+                        <span class="user-top-bar-name"></span>
+                    </div>
+                    <a href="#main_page" class="messenger-exit-btn">Exit</a>
+                    <!-- <span class="messenger-exit-btn">Exit</span> -->
+                </div>
+                <div class="messenger-main-part">
+                    <div class="messenger-area">
+                        <div class="welcome-message">
+                            <span>Choose who you would like to chat with!</span>
+                        </div>
+                        <div class="messages-list">
+                            <!-- <div class="message-block-big">
+                            <div class="outside-container-big">
+                                <span class="messenger-username">John Smith @JS</span>
+                                <span class="messageDateInside-big">16:48</span>
+                            </div>
+                            <span class="messageTextInside-big">Hey! How is it going?</span>
+                        </div> -->
+                        </div>
+                    </div>
+                    <form action="" class="messenger-form hidden">
+                        <input type="text" class="messenger-textarea" placeholder="Write something...">
+                        <button class="messenger-send-button">Send</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <form action="" class="messenger-form">
-            <textarea rows="1" placeholder="Напишите сообщение..." class="textarea-big"></textarea>
-            <input type="submit" value="Send" class="input-field-big" />
-        </form>
-    </div> -->
-    
+    </div>
+
+
+
 
 
     <div class="history-flow hidden">
@@ -170,7 +225,6 @@
         <!-- <span class="alert-text">You've got a new message!</span> -->
         <!-- <img src="./img/OuyQhwHf9gQ.png" alt="photo" class="photo"> -->
     </div>
-
 </body>
 
 </html>

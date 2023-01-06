@@ -20,3 +20,26 @@ export const DeleteAJAX = async function(url, dataToDelete) {
         body: JSON.stringify(dataToDelete),
       })
 }
+
+export const PutAJAX = async function(url, dataToPut) {
+    await fetch(url, {
+        method: 'put',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(dataToPut),
+      })
+}
+
+// {
+//     "id": 1,
+//     "name": "John Smith",
+//     "password": 1111,
+//     "messages": [],
+//     "img": " /img/bird.png",
+//     "city": "Montreal",
+//     "country": "Canada",
+//     "flag": "/img/canada.svg",
+//     "links": [
+//       "https://en.wikipedia.org/wiki/Canada",
+//       "https://www.youtube.com/"
+//     ]
+//   }

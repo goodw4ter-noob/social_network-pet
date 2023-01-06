@@ -7,6 +7,9 @@ class AuthView extends View {
     _login = document.querySelector('.login');
     _body = document.querySelector('body');
     _mainPageWrapper = document.querySelector('.main-page-wrapper');
+    _messengerWrapper = document.querySelector('.messenger-wrapper');
+    _messengerList = document.querySelector('.messages-list');
+    _usersList = document.querySelector('.users-list');
     _authedUser = '';
 
     _profile = '';
@@ -16,6 +19,11 @@ class AuthView extends View {
     _selected = '';
     _exitBtn = '';
     _topProfile = '';
+    _editProfileBtn = '';
+
+    addHandlerEditProfile(handler) {
+        this._editProfileBtn.addEventListener('click', handler);
+    }
 
     addHandlerCheckAuth(handler) {
         this._parentElement.addEventListener('submit', handler);
@@ -69,31 +77,24 @@ class AuthView extends View {
                 </div>
             </div>
             <div class="main-page-profile-row mpp-info">
-                <span>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic, non animi in quae
-                    blanditiis distinctio aspernatur dolores voluptates fuga vero dolorum quisquam eos rem, asperiores
-                    quo praesentium, repellat quos quod autem nobis dolorem debitis ea dolore. Beatae, cupiditate ea?
-                </span>
+                <span>${user.addInfo}</span>
             </div>
             <div class="main-page-profile-row mpp-links">
-                
+                <div class="link1">
+                <a
+                    href="${user.linkArr[0]}">${user.linkArr[0]}</a>
+                </div>
+                <div class="link2">
+                <a
+                    href="${user.linkArr[1]}">${user.linkArr[1]}</a>
+                </div>
             </div>
         </div>
         `;
 
-        const links = user.links.map(link => {
-            return `
-                <div class="link1">
-                <a
-                    href="${link}">${link}</a>
-                </div>
-            `;
-        }).join('');
-
         this._mainPageWrapper.insertAdjacentHTML('afterbegin', profile);
         this._profile = document.querySelector('.main-page-profile');
         this._mppLinks = document.querySelector('.mpp-links');
-        this._mppLinks.insertAdjacentHTML('beforeend', links);
         this._mainPageWrapper.classList.remove('hidden');
 
         this._arrow = document.querySelector('.fa-arrow-down');
@@ -101,6 +102,7 @@ class AuthView extends View {
         this._selected = document.querySelector('.selected');
         this._exitBtn = document.querySelector('.exit-button');
         this._topProfile = document.querySelector('.top-profile');
+        this._editProfileBtn = document.querySelector('.edit-button');
     }
 
     _removeDeleteBtn(posts, authedUser) {
@@ -122,6 +124,9 @@ class AuthView extends View {
         this._mainPageWrapper.removeChild(this._profile);
         this._mainPageWrapper.classList.add('hidden');
         this._welcome.textContent = 'Log in to get started';
+        this._messengerWrapper.classList.add('hidden');
+        this._usersList.textContent = '';
+        this._messengerList.textContent = '';
     }
 
     _toggleMenu() {
